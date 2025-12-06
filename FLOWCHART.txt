@@ -1,0 +1,333 @@
+FLOWCHART - TIC-TAC-TOE GAME IN C
+==================================
+
+MAIN PROGRAM FLOWCHART:
+
+                          START
+                            |
+                            v
+                  Display Welcome Screen
+                  Display Game Rules
+                            |
+                            v
+                  ┌─────────────────────┐
+                  │  Initialize Game    │
+                  │ - Clear board       │
+                  │ - Set player = X    │
+                  │ - movesCount = 0    │
+                  └─────────────────────┘
+                            |
+                            v
+                  ┌─────────────────────┐
+                  │   GAME LOOP STARTS   │
+                  │ while(!gameOver)    │
+                  └─────────────────────┘
+                            |
+                            v
+                  ┌─────────────────────┐
+                  │  Display Game Board │
+                  │  (3x3 grid)         │
+                  └─────────────────────┘
+                            |
+                            v
+                  ┌─────────────────────┐
+                  │  Get Player Input   │
+                  │  (Position 0-8)     │
+                  └─────────────────────┘
+                            |
+                            v
+                  ┌─────────────────────┐
+                  │  Validate Input     │
+                  └─────────────────────┘
+                            |
+                ┌───────────┴───────────┐
+                v                       v
+        Invalid Input            Valid Input
+                |                       |
+                └─────┬─────────────────┘
+                      |
+                      v
+            ┌─────────────────────┐
+            │  Convert 1D to 2D   │
+            │  Position to [r][c] │
+            │  row = pos / 3      │
+            │  col = pos % 3      │
+            └─────────────────────┘
+                      |
+                      v
+            ┌─────────────────────┐
+            │ Make Move (Place X) │
+            │ board[r][c] = X     │
+            │ movesCount++        │
+            └─────────────────────┘
+                      |
+                      v
+            ┌─────────────────────┐
+            │   Check Win for X   │
+            │ (8 possible ways)   │
+            └─────────────────────┘
+                      |
+                ┌─────┴─────┐
+                v           v
+              WIN         NO WIN
+                |           |
+                |           v
+                |   ┌─────────────────────┐
+                |   │   Check for Draw    │
+                |   │ All 9 filled? No    │
+                |   │ winner?             │
+                |   └─────────────────────┘
+                |           |
+                |       ┌───┴───┐
+                |       v       v
+                |      DRAW   CONTINUE
+                |       |       |
+                |       |       v
+                |       |   ┌─────────────────────┐
+                |       |   │  Switch Player      │
+                |       |   │  X ↔ O              │
+                |       |   └─────────────────────┘
+                |       |       |
+                |       |       v
+                |       |   ┌─────────────────────┐
+                |       |   │ Repeat game loop    │
+                |       |   └─────────────────────┘
+                |       |       |
+                └───────┴───────┘
+                        |
+                        v
+                ┌─────────────────────┐
+                │  Display Result     │
+                │ (Winner or Draw)    │
+                └─────────────────────┘
+                        |
+                        v
+                ┌─────────────────────┐
+                │  Play Again?        │
+                │ (Y/N)               │
+                └─────────────────────┘
+                        |
+                   ┌────┴────┐
+                   v         v
+                  YES       NO
+                   |         |
+                   |         v
+                   |     Display Goodbye
+                   |     EXIT
+                   |
+                   └──→ Go to Initialize
+
+
+DETAILED DECISION FLOWCHART - INPUT VALIDATION:
+
+                    Get Player Input
+                           |
+                           v
+                   ┌─────────────────┐
+                   │ Read integer    │
+                   └─────────────────┘
+                           |
+                      ┌────┴────┐
+              Valid Integer?    No → Clear buffer → Ask again
+                   |
+                   v
+         ┌─────────────────────┐
+         │ Check range 0-8     │
+         └─────────────────────┘
+                   |
+            ┌──────┴──────┐
+         In range?    Out of range?
+            |               |
+            v               v
+         Convert        Show error
+         1D→2D          Ask again
+            |
+            v
+    ┌────────────────┐
+    │ Check if cell  │
+    │ is empty       │
+    └────────────────┘
+            |
+       ┌────┴────┐
+      YES       NO
+       |         |
+       v         v
+    Make Move   Show error
+       |        Ask again
+       v
+    Return Success
+
+
+FLOWCHART - WIN DETECTION (checkWin function):
+
+           Check Win for Player X
+                    |
+         ┌──────────┼──────────┐
+         v          v          v
+    Check Rows  Check Cols  Check Diagonals
+         |          |             |
+         v          v             v
+    ┌────┐    ┌────┐          ┌────┐
+    │Row │    │Col │    ┌─→ Diag1 │
+    │0,1,2    │0,1,2    │    ┌────┐
+    └────┘    └────┘    │ Diag2
+         |          |    │
+    X X X?     X X X?  └───→ Match?
+         |          |         |
+       Match?     Match?      |
+         |          |         |
+         └──────────┼─────────┘
+                    |
+              ┌─────┴─────┐
+              v           v
+           WIN          NO WIN
+              |           |
+              └─────┬─────┘
+                    |
+               Return 1/0
+
+
+FLOWCHART - GAME LOOP ITERATION:
+
+        ┌─────────────────────────────────┐
+        │   Each Game Loop Iteration      │
+        └─────────────────────────────────┘
+                      |
+                      v
+            ┌──────────────────────┐
+            │ 1. Display Board     │
+            └──────────────────────┘
+                      |
+                      v
+            ┌──────────────────────┐
+            │ 2. Get Player Input  │
+            │ (X or O)             │
+            └──────────────────────┘
+                      |
+                      v
+            ┌──────────────────────┐
+            │ 3. Validate & Make   │
+            │    Move              │
+            └──────────────────────┘
+                      |
+                      v
+            ┌──────────────────────┐
+            │ 4. Check Win         │
+            └──────────────────────┘
+                  |        |
+                WIN      NO WIN
+                  |        |
+                 EXIT      v
+                LOOP   ┌──────────────┐
+                       │ 5. Check Draw│
+                       └──────────────┘
+                            |
+                       ┌────┴────┐
+                      DRAW    CONTINUE
+                       |        |
+                      EXIT      v
+                      LOOP  ┌──────────────┐
+                           │6. Switch     │
+                           │  Player      │
+                           └──────────────┘
+                                |
+                         ┌───────┘
+                         v
+                    REPEAT LOOP
+
+
+MEMORY & DATA STRUCTURE FLOW:
+
+┌──────────────────────────────────────┐
+│    Game Structure (Stack)            │
+├──────────────────────────────────────┤
+│                                      │
+│  board[3][3]                         │
+│  ┌──────────────────────────┐        │
+│  │ ' ' │ ' ' │ ' ' │        │        │
+│  ├──────────────────────────┤        │
+│  │ ' ' │ ' ' │ ' ' │        │        │
+│  ├──────────────────────────┤        │
+│  │ ' ' │ ' ' │ ' ' │        │        │
+│  └──────────────────────────┘        │
+│                                      │
+│  currentPlayer: 'X' (or 'O')        │
+│                                      │
+│  movesCount: 0-9                    │
+│                                      │
+│  gameOver: 0 (false) or 1 (true)    │
+│                                      │
+└──────────────────────────────────────┘
+
+
+POSITION MAPPING (1D INPUT → 2D ARRAY):
+
+Input:   0 1 2         Array:  [0][0] [0][1] [0][2]
+         3 4 5                 [1][0] [1][1] [1][2]
+         6 7 8                 [2][0] [2][1] [2][2]
+
+Formula:
+  row = position / 3
+  col = position % 3
+
+Example: Input 5
+  row = 5 / 3 = 1
+  col = 5 % 3 = 2
+  → Array position [1][2]
+
+
+PLAYER SWITCHING LOGIC:
+
+    currentPlayer = 'X'
+           |
+           v
+    ┌─────────────┐
+    │ Check Win   │
+    │ for X       │
+    └─────────────┘
+           |
+          No Win
+           |
+           v
+    ┌──────────────────┐
+    │ switchPlayer()   │
+    │ X → O            │
+    └──────────────────┘
+           |
+           v
+    currentPlayer = 'O'
+           |
+           v
+    ┌─────────────┐
+    │ Check Win   │
+    │ for O       │
+    └─────────────┘
+           |
+          No Win
+           |
+           v
+    ┌──────────────────┐
+    │ switchPlayer()   │
+    │ O → X            │
+    └──────────────────┘
+           |
+           v
+    currentPlayer = 'X'
+           |
+        [Repeat]
+
+
+END OF FLOWCHART DOCUMENT
+=========================
+
+Legend:
+  ┌─ ─┐
+  │Box│ = Process/Action
+  └─ ─┘
+
+  ◇    = Decision (Yes/No)
+
+  → ↓ = Flow direction
+
+  [ ] = Terminator (Start/End)
+

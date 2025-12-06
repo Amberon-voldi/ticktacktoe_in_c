@@ -1,0 +1,361 @@
+SAMPLE OUTPUT - TIC-TAC-TOE GAME
+================================
+
+GAME SESSION TRANSCRIPT:
+
+═════════════════════════════════════════════════════════════════
+
+Run Command: ./tictactoe
+
+═════════════════════════════════════════════════════════════════
+
+╔════════════════════════════════════════╗
+║        TIC-TAC-TOE GAME IN C           ║
+║     A BCA First Semester Project       ║
+╚════════════════════════════════════════╝
+
+📋 GAME RULES:
+   • Two players: X and O
+   • Players take turns marking spaces
+   • First to get 3 in a row (horizontal, vertical, or diagonal) wins
+   • If all 9 spaces are filled with no winner, the game is a draw
+
+🎮 HOW TO PLAY:
+   • Positions are numbered 0-8
+   • Enter the position number for your move
+   • Each position can only be used once
+
+Reference Board (Position Numbers):
+     |     |     
+  0  |  1  |  2  
+_____|_____|_____
+  3  |  4  |  5  
+_____|_____|_____
+  6  |  7  |  8  
+     |     |     
+
+═════════════════════════════════════════════════════════════════
+
+TURN 1:
+
+     |     |     
+     |     |     
+_____|_____|_____
+     |     |     
+_____|_____|_____
+     |     |     
+     |     |     
+
+🎯 Player X's turn
+Enter position (0-8): 4
+
+
+═════════════════════════════════════════════════════════════════
+
+TURN 2:
+
+     |     |     
+     |     |     
+_____|_____|_____
+     |  X  |     
+_____|_____|_____
+     |     |     
+     |     |     
+
+🎯 Player O's turn
+Enter position (0-8): 0
+
+
+═════════════════════════════════════════════════════════════════
+
+TURN 3:
+
+     |     |     
+  O  |     |     
+_____|_____|_____
+     |  X  |     
+_____|_____|_____
+     |     |     
+     |     |     
+
+🎯 Player X's turn
+Enter position (0-8): 8
+
+
+═════════════════════════════════════════════════════════════════
+
+TURN 4:
+
+     |     |     
+  O  |     |     
+_____|_____|_____
+     |  X  |     
+_____|_____|_____
+     |     |  X  
+     |     |     
+
+🎯 Player O's turn
+Enter position (0-8): 2
+
+
+═════════════════════════════════════════════════════════════════
+
+TURN 5:
+
+     |     |     
+  O  |     |  O  
+_____|_____|_____
+     |  X  |     
+_____|_____|_____
+     |     |  X  
+     |     |     
+
+🎯 Player X's turn
+Enter position (0-8): 1
+
+
+═════════════════════════════════════════════════════════════════
+
+TURN 6:
+
+     |     |     
+  O  |  X  |  O  
+_____|_____|_____
+     |  X  |     
+_____|_____|_____
+     |     |  X  
+     |     |     
+
+🎉 Player X WINS! Congratulations!
+
+═════════════════════════════════════════════════════════════════
+
+╔════════════════════════════════════════╗
+║              GAME OVER                 ║
+╚════════════════════════════════════════╝
+Total moves made: 5
+
+Do you want to play again? (yes/no): yes
+
+═══════════════════════════════════════
+Starting new game...
+═══════════════════════════════════════
+
+═════════════════════════════════════════════════════════════════
+
+SECOND GAME - TURN 1:
+
+     |     |     
+     |     |     
+_____|_____|_____
+     |     |     
+_____|_____|_____
+     |     |     
+     |     |     
+
+🎯 Player X's turn
+Enter position (0-8): 0
+
+
+═════════════════════════════════════════════════════════════════
+
+TURN 2:
+
+     |     |     
+  X  |     |     
+_____|_____|_____
+     |     |     
+_____|_____|_____
+     |     |     
+     |     |     
+
+🎯 Player O's turn
+Enter position (0-8): 5
+
+
+═════════════════════════════════════════════════════════════════
+
+TURN 3:
+
+     |     |     
+  X  |     |     
+_____|_____|_____
+     |     |  O  
+_____|_____|_____
+     |     |     
+     |     |     
+
+🎯 Player X's turn
+Enter position (0-8): 3
+
+
+═════════════════════════════════════════════════════════════════
+
+TURN 4:
+
+     |     |     
+  X  |     |     
+_____|_____|_____
+  X  |     |  O  
+_____|_____|_____
+     |     |     
+     |     |     
+
+🎯 Player O's turn
+Enter position (0-8): 2
+
+
+═════════════════════════════════════════════════════════════════
+
+TURN 5:
+
+     |     |     
+  X  |     |  O  
+_____|_____|_____
+  X  |     |  O  
+_____|_____|_____
+     |     |     
+     |     |     
+
+🎯 Player X's turn
+Enter position (0-8): 6
+
+
+═════════════════════════════════════════════════════════════════
+
+TURN 6:
+
+     |     |     
+  X  |     |  O  
+_____|_____|_____
+  X  |     |  O  
+_____|_____|_____
+  X  |     |     
+     |     |     
+
+🎉 Player X WINS! Congratulations!
+
+═════════════════════════════════════════════════════════════════
+
+╔════════════════════════════════════════╗
+║              GAME OVER                 ║
+╚════════════════════════════════════════╝
+Total moves made: 5
+
+Do you want to play again? (yes/no): no
+
+═════════════════════════════════════════════════════════════════
+
+╔════════════════════════════════════════╗
+║     Thanks for playing Tic-Tac-Toe!   ║
+║         See you next time! 👋         ║
+╚════════════════════════════════════════╝
+
+═════════════════════════════════════════════════════════════════
+
+
+EXAMPLE WITH INPUT VALIDATION ERROR:
+
+═════════════════════════════════════════════════════════════════
+
+     |     |     
+     |     |     
+_____|_____|_____
+     |     |     
+_____|_____|_____
+     |     |     
+     |     |     
+
+🎯 Player X's turn
+Enter position (0-8): 10
+❌ Error: Position out of bounds!
+Enter position (0-8): -1
+❌ Error: Position out of bounds!
+Enter position (0-8): abc
+❌ Invalid input! Please enter a number between 0 and 8.
+Enter position (0-8): 4
+
+
+═════════════════════════════════════════════════════════════════
+
+EXAMPLE WITH OCCUPIED POSITION ERROR:
+
+═════════════════════════════════════════════════════════════════
+
+     |     |     
+     |     |     
+_____|_____|_____
+     |  X  |     
+_____|_____|_____
+     |     |     
+     |     |     
+
+🎯 Player O's turn
+Enter position (0-8): 4
+❌ Error: Position already occupied! Choose another position.
+Enter position (0-8): 0
+
+
+═════════════════════════════════════════════════════════════════
+
+EXAMPLE OF DRAW GAME:
+
+═════════════════════════════════════════════════════════════════
+
+MOVE 1: X → 4 (center)
+MOVE 2: O → 0 (top-left)
+MOVE 3: X → 2 (top-right)
+MOVE 4: O → 6 (bottom-left)
+MOVE 5: X → 1 (top-center)
+MOVE 6: O → 3 (middle-left)
+MOVE 7: X → 5 (middle-right)
+MOVE 8: O → 8 (bottom-right)
+MOVE 9: X → 7 (bottom-center)
+
+Final Board:
+     |     |     
+  O  |  X  |  X  
+_____|_____|_____
+  O  |  X  |  O  
+_____|_____|_____
+  O  |  X  |  O  
+     |     |     
+
+🤝 It's a DRAW! Well played, both players!
+
+═════════════════════════════════════════════════════════════════
+
+STATISTICS FROM SAMPLE RUN:
+
+Game 1:
+  Winner: Player X
+  Moves: 5
+  Winning Pattern: Diagonal (0→4→8)
+
+Game 2:
+  Winner: Player X
+  Moves: 5
+  Winning Pattern: Left Column (0→3→6)
+
+═════════════════════════════════════════════════════════════════
+
+WINNING PATTERNS REFERENCE:
+
+ROW WINS:
+   X X X       . . .       . . .
+   . . .   OR  X X X   OR  . . .
+   . . .       . . .       X X X
+
+COLUMN WINS:
+   X . .       . X .       . . X
+   X . .   OR  . X .   OR  . . X
+   X . .       . X .       . . X
+
+DIAGONAL WINS:
+   X . .       . . X
+   . X .   OR  . X .
+   . . X       X . .
+
+═════════════════════════════════════════════════════════════════
+
+END OF SAMPLE OUTPUT
