@@ -33,6 +33,14 @@ typedef struct {
 // ============= FUNCTION DECLARATIONS =============
 
 /*
+ * Function: clearScreen
+ * Purpose: Clears the console screen
+ * Parameters: void
+ * Returns: void
+ */
+void clearScreen(void);
+
+/*
  * Function: initializeGame
  * Purpose: Initialize the game board and set starting conditions
  * Parameters: pointer to Game structure
@@ -132,6 +140,13 @@ int playAgain(void);
 // ============= FUNCTION IMPLEMENTATIONS =============
 
 /*
+ * Clear the console screen using ANSI escape codes
+ */
+void clearScreen(void) {
+    printf("\033[H\033[J");
+}
+
+/*
  * Initialize the game with an empty board and starting player
  */
 void initializeGame(Game *game) {
@@ -152,6 +167,7 @@ void initializeGame(Game *game) {
  * Display the game board with borders and position numbers
  */
 void displayBoard(const Game *game) {
+    clearScreen();
     printf("\n");
     printf("     |     |     \n");
     
@@ -245,8 +261,18 @@ void getPlayerInput(Game *game) {
     int position = -1;
     int row, col;
     int validInput = 0;
+    char message[100] = ""; // Buffer for error messages
     
     while (!validInput) {
+        // Refresh screen and show board
+        displayBoard(game);
+        
+        // Show any error message from previous attempt
+        if (strlen(message) > 0) {
+            printf("%s\n", message);
+            message[0] = '\0'; // Clear message
+        }
+
         printf("🎯 Player %c's turn\n", game->currentPlayer);
         printf("Enter position (0-8): ");
         
@@ -254,27 +280,25 @@ void getPlayerInput(Game *game) {
         if (scanf("%d", &position) != 1) {
             // Clear the input buffer if invalid input
             while (getchar() != '\n');
-            printf("❌ Invalid input! Please enter a number between 0 and 8.\n");
+            strcpy(message, "❌ Invalid input! Please enter a number between 0 and 8.");
             continue;
         }
         
         // Validate input range
         if (position < 0 || position > 8) {
-            printf("❌ Invalid position! Please enter a number between 0 and 8.\n");
+            strcpy(message, "❌ Invalid position! Please enter a number between 0 and 8.");
             continue;
         }
         
         // Convert 1D position to 2D coordinates
-        // Position mapping:
-        // 0 1 2
-        // 3 4 5
-        // 6 7 8
-        row = position / BOARD_SIZE;  // Divide by 3
-        col = position % BOARD_SIZE;  // Modulo 3
+        row = position / BOARD_SIZE;
+        col = position % BOARD_SIZE;
         
         // Try to make the move
         if (makeMove(game, row, col)) {
             validInput = 1;
+        } else {
+            strcpy(message, "❌ Error: Position already occupied! Choose another position.");
         }
     }
 }
@@ -349,10 +373,7 @@ int checkDraw(const Game *game) {
  */
 void playGame(Game *game) {
     while (!game->gameOver) {
-        // Display current board state
-        displayBoard(game);
-        
-        // Get player input
+        // Get player input (handles display refresh)
         getPlayerInput(game);
         
         // Check if current player won
